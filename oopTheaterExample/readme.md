@@ -1,3 +1,8 @@
+# Ver2.
+## 캡슐화
+- Theater, TicketOffice간 의존성 제거
+- TicketSeller가 인터페이스로 동작하도록 변꼉
+
 # Ver1.
 
 ## 문제 투성이 코드

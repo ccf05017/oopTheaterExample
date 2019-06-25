@@ -2,6 +2,7 @@ package com.jbj.theaterExample;
 
 public class Theater {
 
+//    일종의 interface 역할을 하게 됨
     private TicketSeller ticketSeller;
 
     public Theater(TicketSeller ticketSeller) {
@@ -9,17 +10,7 @@ public class Theater {
     }
 
     public void enter(Audience audience) {
-        if (audience.getBag().hasInvitation()) {
-            // 초대장이 있는 경우
-            // 초대장이 있는데 왜 티켓 판매원한테 티켓을 삼?
-            Ticket ticket = ticketSeller.getTicketOffice().getTicket();
-            audience.getBag().setTicket(ticket);
-        } else {
-            // 초대장이 없는 경우
-            Ticket ticket = ticketSeller.getTicketOffice().getTicket();
-            audience.getBag().minusAmount(ticket.getFee());
-            ticketSeller.getTicketOffice().plusAmount(ticket.getFee());
-            audience.getBag().setTicket(ticket);
-        }
+//        더 이상 ticketOffice에 접근하지 않는다
+        ticketSeller.sellTo(audience);
     }
 }
